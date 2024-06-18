@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
-import { useAppSelector } from './hooks';
+import { useAppSelector } from '@/hooks';
+import { Orders } from '@/pages';
 
 function App() {
 	const { name } = useAppSelector((state) => state.userState);
@@ -17,6 +18,7 @@ function App() {
 			>
 				нажать
 			</Button>
+			<Orders />
 		</>
 	);
 }
