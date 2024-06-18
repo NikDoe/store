@@ -1,26 +1,20 @@
-import { Button } from '@/components/ui/button';
-import { useAppSelector } from '@/hooks';
-import { Orders } from '@/pages';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Cart, Landing } from './pages';
+
+const router = createBrowserRouter([
+	{
+		path: '/',
+		element: <Landing />
+	},
+	{
+		path: '/cart',
+		element: <Cart />
+	}
+]);
 
 function App() {
-	const { name } = useAppSelector((state) => state.userState);
-	console.log(name);
 	
-	return (
-		<>
-			<h1 className='font-bold text-7xl'>
-				hello there 👽
-			</h1>
-			<Button 
-				variant='destructive' 
-				size='lg' 
-				onClick={() => console.log('нажата кнопка')}
-			>
-				нажать
-			</Button>
-			<Orders />
-		</>
-	);
+	return <RouterProvider router={router} />;
 }
 
 export default App;
