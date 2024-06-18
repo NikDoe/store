@@ -1,8 +1,8 @@
 function App() {
 	return (
-		<div>
+		<h1 className='font-bold text-7xl'>
 			hello there 👽
-		</div>
+		</h1>
 	);
 }
 
