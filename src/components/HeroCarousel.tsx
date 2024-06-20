@@ -16,8 +16,8 @@ const carouselImages = [hero1, hero2, hero3, hero4];
 
 function HeroCarousel() {
 	return (
-		<div className='hidden lg:block'>
-			<Carousel>
+		<div className='hidden lg:flex justify-center w-full'>
+			<Carousel className='w-full max-w-sm'>
 				<CarouselContent>
 					{carouselImages.map((image, index) => (
 						<CarouselItem key={index}>
