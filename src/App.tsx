@@ -1,10 +1,11 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { About, Cart, Checkout, HomeLayout, Landing, Login, Orders, Products, Register, SingleProduct } from './pages';
+import { About, Cart, Checkout, HomeLayout, Landing, Login, Orders, Products, Register, SingleProduct, Error } from './pages';
 
 const router = createBrowserRouter([
 	{
 		path: '/',
 		element: <HomeLayout />,
+		errorElement: <Error />,
 
 		children: [
 			{
@@ -37,10 +38,12 @@ const router = createBrowserRouter([
 	{
 		path: '/login',
 		element: <Login />,
+		errorElement: <Error />,
 	},
 	{
 		path: '/register',
 		element: <Register />,
+		errorElement: <Error />,
 	},
 ]);
 
