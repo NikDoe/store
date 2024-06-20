@@ -21,7 +21,7 @@ const Hero = () => {
 					<Link to='/products'>Our Products</Link>
 				</Button>
 			</div>
-			{/* hero carousel */}
+			
 			<HeroCarousel />
 		</section>
 	);
