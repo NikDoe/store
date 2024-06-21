@@ -5,10 +5,11 @@ import { ProductsResponseWithParams } from '@/utils';
 import FormInput from './FormInput';
 import FormSelect from './FormSelect';
 import FormRange from './FormRange';
+import FormCheckbox from './FormCheckbox';
 
 function Filters() {
 	const { params, meta } = useLoaderData() as ProductsResponseWithParams;
-	const { search, category, company, order, price } = params;
+	const { search, category, company, order, price, shipping } = params;
     
 	return (
 		<Form className='border rounded-md px-8 py-4 grid gap-x-4 gap-y-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center'>
@@ -42,6 +43,9 @@ function Filters() {
 			/>
 			{/* PRICE */}
 			<FormRange label='price' name='price' defaultValue={price} />
+			{/* SHIPPING */}
+			<FormCheckbox label='free shipping' name='shipping' defaultValue={shipping} />
+			
 			<Button type='submit' size='sm' className='self-end mb-2'>
                 search
 			</Button>
