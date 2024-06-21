@@ -4,10 +4,11 @@ import { ProductsResponseWithParams } from '@/utils';
 
 import FormInput from './FormInput';
 import FormSelect from './FormSelect';
+import FormRange from './FormRange';
 
 function Filters() {
 	const { params, meta } = useLoaderData() as ProductsResponseWithParams;
-	const { search, category, company, order } = params;
+	const { search, category, company, order, price } = params;
     
 	return (
 		<Form className='border rounded-md px-8 py-4 grid gap-x-4 gap-y-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center'>
@@ -24,21 +25,23 @@ function Filters() {
 				name='category'
 				options={meta.categories}
 				defaultValue={category}
-			/>;
+			/>
 			{/* COMPANIES */}
 			<FormSelect
 				label='select company'
 				name='company'
 				options={meta.companies}
 				defaultValue={company}
-			/>;
+			/>
 			{/* ORDER */}
 			<FormSelect
 				label='order by'
 				name='order'
 				options={['a-z', 'z-a', 'high', 'low']}
 				defaultValue={order}
-			/>;
+			/>
+			{/* PRICE */}
+			<FormRange label='price' name='price' defaultValue={price} />
 			<Button type='submit' size='sm' className='self-end mb-2'>
                 search
 			</Button>
