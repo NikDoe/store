@@ -1,9 +1,22 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { About, Cart, Checkout, HomeLayout, Landing, Login, Orders, Products, Register, SingleProduct, Error } from './pages';
 import { ErrorElement } from './components';
+import {
+	About,
+	Cart,
+	Checkout,
+	Error,
+	HomeLayout,
+	Landing,
+	Login,
+	Orders,
+	Products,
+	Register,
+	SingleProduct
+} from './pages';
 
 import { loader as landingLoader } from './pages/Landing';
 import { loader as productsLoader } from './pages/Products';
+import { loader as singleProductLoader } from './pages/SingleProduct';
 
 const router = createBrowserRouter([
 	{
@@ -28,6 +41,7 @@ const router = createBrowserRouter([
 				path: 'products/:id',
 				element: <SingleProduct />,
 				errorElement: <ErrorElement />,
+				loader: singleProductLoader,
 			},
 			{
 				path: 'cart',
