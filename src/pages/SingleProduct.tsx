@@ -1,3 +1,4 @@
+import { SelectProductColor } from '@/components';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { customFetch, formatAsDollars, type SingleProductResponse, } from '@/utils';
@@ -24,6 +25,8 @@ const SingleProduct = () => {
 		colors,
 		company
 	} = product.attributes;
+
+	console.log(colors);
 
 	const dollarsAmount = formatAsDollars(price);
 	const [productColor, setProductColor] = useState(colors[0]);
@@ -60,7 +63,11 @@ const SingleProduct = () => {
 				</p>
 				<p className='mt-6 leading-8'>{description}</p>
 				{/* COLORS */}
-
+				<SelectProductColor
+					colors={colors}
+					productColor={productColor}
+					setProductColor={setProductColor}
+				/>
 				{/* AMOUNT */}
 
 				{/* CART BUTTON */}
