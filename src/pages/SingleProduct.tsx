@@ -1,7 +1,9 @@
-import { SelectProductColor } from '@/components';
+import { SelectProductAmount, SelectProductColor } from '@/components';
+import { Mode } from '@/components/SelectProductAmount';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { customFetch, formatAsDollars, type SingleProductResponse, } from '@/utils';
+
 import { useState } from 'react';
 import { Link, type LoaderFunction, useLoaderData } from 'react-router-dom';
 
@@ -25,8 +27,6 @@ const SingleProduct = () => {
 		colors,
 		company
 	} = product.attributes;
-
-	console.log(colors);
 
 	const dollarsAmount = formatAsDollars(price);
 	const [productColor, setProductColor] = useState(colors[0]);
@@ -69,7 +69,11 @@ const SingleProduct = () => {
 					setProductColor={setProductColor}
 				/>
 				{/* AMOUNT */}
-
+				<SelectProductAmount
+					amount={amount}
+					setAmount={setAmount}
+					mode={Mode.SingleProduct}
+				/>
 				{/* CART BUTTON */}
 				<Button size='lg' className='mt-10' onClick={addToCart}>
 					Add to bag
