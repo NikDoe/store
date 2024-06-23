@@ -2,7 +2,9 @@ import { SelectProductAmount, SelectProductColor } from '@/components';
 import { Mode } from '@/components/SelectProductAmount';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { customFetch, formatAsDollars, type SingleProductResponse, } from '@/utils';
+import { addItem } from '@/features/cart/cartSlice';
+import { useAppDispatch } from '@/hooks';
+import { type CartItem, customFetch, formatAsDollars, type SingleProductResponse, } from '@/utils';
 
 import { useState } from 'react';
 import { Link, type LoaderFunction, useLoaderData } from 'react-router-dom';
@@ -31,9 +33,21 @@ const SingleProduct = () => {
 	const dollarsAmount = formatAsDollars(price);
 	const [productColor, setProductColor] = useState(colors[0]);
 	const [amount, setAmount] = useState(1);
+	const dispatch = useAppDispatch();
+
+	const cartProduct: CartItem = {
+		cartID: product.id + productColor,
+		productID: product.id,
+		company,
+		price,
+		title,
+		amount,
+		productColor,
+		image
+	};
 
 	const addToCart = () => {
-		console.log('add to cart');
+		dispatch(addItem(cartProduct));
 	};
 
 	return <section>
