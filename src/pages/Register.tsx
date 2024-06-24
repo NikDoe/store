@@ -18,8 +18,6 @@ export const action: ActionFunction = async ({
 
 		return redirect('/login');
 	} catch (error) {
-		console.log(error);
-
 		const errorMsg =
 			error instanceof AxiosError
 				? error.response?.data.error.message
