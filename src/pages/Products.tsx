@@ -1,5 +1,5 @@
-import { Filters, ProductsContainer, PaginationContainer } from '@/components';
-import { type ProductsResponseWithParams, customFetch, type ProductsResponse } from '../utils';
+import { Filters, PaginationContainer, ProductsContainer } from '@/components';
+import { customFetch, type ProductsResponse, type ProductsResponseWithParams } from '@/utils';
 import { type LoaderFunction } from 'react-router-dom';
 
 const url = '/products';
